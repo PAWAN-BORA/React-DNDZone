@@ -1,0 +1,11 @@
+.test_cls {
+	background:green;
+}
+
+.revert {
+	transition: all 1s;
+}
+.dragging {
+	/* position: relative; */
+	z-index: 1000;
+}
