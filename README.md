@@ -51,13 +51,13 @@ function App(){
 
 | Prop Name    | Description                                   | Default                    |
 | :----------- | :-------------------------------------------- | :------------------------- |
-| `dragClass*` | ![className of elements that need to be dragged!]() `type=string` |   `-`   |
-| `dropClass*` | ![className of elements on which the drag element is dropped!]() `type=string` |   `-`   |
-| `revert` | ![If this value is set to false, the drag item will not revert to its initial position upon being dropped!]() `type=boolean` |   `true`   |
-| `dragZIndex` | ![This specifies the initial z-index value of the drag item when it is being dragged!]() `type=number` |   `1000`   |
-| `onDrop` | ![This function will execute when the drag item is dropped onto the drop item!]() `((dragItem: HTMLElement, drapItem: HTMLElement) => void) \| null` |   `-`   |
-| `onDragEnter` | ![This function will execute when the drag item enters over the drop item!]() `((dragItem: HTMLElement, drapItem: HTMLElement) => void) \| null` |   `-`   |
-| `onDragLeave` | ![This function will execute when the drag item is no longer over the drop item!]() `((dragItem: HTMLElement, drapItem: HTMLElement) => void) \| null` |   `-`   |
+| `dragClass*` | className of elements that need to be dragged!</br>`type=string` |   `-`   |
+| `dropClass*` | className of elements on which the drag element is dropped!</br>`type=string` |   `-`   |
+| `revert` | If this value is set to false, the drag item will not revert to its initial position upon being dropped!</br>`type=boolean` |   `true`   |
+| `dragZIndex` | This specifies the initial z-index value of the drag item when it is being dragged!</br>`type=number` |   `1000`   |
+| `onDrop` | This function will execute when the drag item is dropped onto the drop item!</br>`((dragItem: HTMLElement, drapItem: HTMLElement) => void) \| null` |   `-`   |
+| `onDragEnter` | This function will execute when the drag item enters over the drop item!</br>`((dragItem: HTMLElement, drapItem: HTMLElement) => void) \| null` |   `-`   |
+| `onDragLeave` | This function will execute when the drag item is no longer over the drop item!</br>`((dragItem: HTMLElement, drapItem: HTMLElement) => void) \| null` |   `-`   |
 
 ## License
 
