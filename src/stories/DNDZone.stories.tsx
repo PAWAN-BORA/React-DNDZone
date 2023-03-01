@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import DNDZone from '../components/DNDZone';
 import { ComponentStory} from '@storybook/react';
 
@@ -15,7 +15,7 @@ export default {
     
   }
 }
-let cusStyle = {width:"100px", height:"100px", background:"gray", display:'flex', alignItems:'center', justifyContent:'center', color:"#ffffff", cursor:"move"}
+let cusStyle = {width:"100px", height:"100px", backgroundColor:"gray", display:'flex', alignItems:'center', justifyContent:'center', color:"#ffffff", cursor:"move"}
 
 const Template:ComponentStory<typeof DNDZone> = (args) => {
   return(
@@ -96,6 +96,7 @@ DragAndDrop.args = {
 let dropCusStyle = {width:"150px", height:"150px", background:"gray", display:'flex', alignItems:'center', justifyContent:'center', color:"#ffffff", padding:"4px", textAlign:"center" as const}
 
 export const MultipleDragAndDrop:ComponentStory<typeof DNDZone> = (args)=>{
+  const colorArray = useRef(['red', 'green', 'blue', 'purple']).current;
 
   function onDragEnter(dragItem:HTMLElement, dropItem:HTMLElement){
    
@@ -107,18 +108,20 @@ export const MultipleDragAndDrop:ComponentStory<typeof DNDZone> = (args)=>{
   function onDrop(dragItem:HTMLElement, dropItem:HTMLElement){
     let dragText = dragItem.getAttribute("data-name");
     let dropText = dropItem.getAttribute("data-name");
+    let textArray = dragText?.split(" ");
+    let colorNum:number|undefined = textArray!=undefined?Number(textArray[1])-1:0;
     dropItem.style.boxShadow = "";
-    dropItem.style.background = "yellow";
+    dropItem.style.background = colorArray[colorNum];
     dropItem.style.color = "black";
     dropItem.innerHTML = `${dragText} is droped over ${dropText}`;
   }
   return(
     <DNDZone {...args} onDragEnter={onDragEnter} onDragLeave={onDragLeave} onDrop={onDrop}>
       <div style={{display:'grid', gridTemplateColumns:"1fr 1fr 1fr 1fr", columnGap:'4px'}}>
-        <div style={{...cusStyle, backgroundColor:"red"}} data-name="Drag 1" className="drag">Drag 1!</div>
-        <div style={{...cusStyle, backgroundColor:"green"}} data-name="Drag 2" className="drag">Drag 2!</div>
-        <div style={{...cusStyle, backgroundColor:"blue"}} data-name="Drag 3" className="drag">Drag 3!</div>
-        <div style={{...cusStyle, backgroundColor:"purple"}} data-name="Drag 4" className="drag">Drag 4!</div>
+        <div style={{...cusStyle, backgroundColor:colorArray[0]}} data-name="Drag 1" className="drag">Drag 1!</div>
+        <div style={{...cusStyle, backgroundColor:colorArray[1]}} data-name="Drag 2" className="drag">Drag 2!</div>
+        <div style={{...cusStyle, backgroundColor:colorArray[2]}} data-name="Drag 3" className="drag">Drag 3!</div>
+        <div style={{...cusStyle, backgroundColor:colorArray[3]}} data-name="Drag 4" className="drag">Drag 4!</div>
       </div>
       <div style={{marginTop:"24px", display:'grid', gridTemplateColumns:"1fr 1fr 1fr 1fr", columnGap:'4px'}}>
         <div style={dropCusStyle} data-name="Drop 1" className="drop">drop 1!</div>
