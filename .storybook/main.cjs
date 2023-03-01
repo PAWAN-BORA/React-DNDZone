@@ -13,9 +13,6 @@ module.exports = {
 }
 
 async function supportCssModules(config) {
-  // console.log('1=================================')
-  // console.log('>>>config', config.module.rules)
-  // console.log('1=================================')
 
   config.module.rules.find(
     (rule) => rule.test.toString() === '/\\.css$/'

@@ -7,13 +7,22 @@ export default {
   component:DNDZone,
   argTypes:{
     dragClass:{
-      control:false,
+      control: false,
     },
     dropClass:{
       control:false,
     },
+    // revert:{
+    //   control:false,
+    // },
+    dragZIndex:{
+      control:false,
+    },
     
   }
+}
+const paraArgs= {
+  controls:{ expanded:true, hideNoControlsWarning:true} 
 }
 let cusStyle = {width:"100px", height:"100px", backgroundColor:"gray", display:'flex', alignItems:'center', justifyContent:'center', color:"#ffffff", cursor:"move"}
 
@@ -29,6 +38,8 @@ Drag.args = {
   dragClass:"drag",
   revert:true
 }
+Drag.parameters = paraArgs;
+
 export const MultipleDrag:ComponentStory<typeof DNDZone> = (args)=>{
   return(
     <DNDZone {...args}>
@@ -45,6 +56,7 @@ MultipleDrag.args = {
   dragClass:"drag",
   revert:true
 }
+MultipleDrag.parameters = paraArgs;
 
 export const DragAndDrop:ComponentStory<typeof DNDZone> = (args)=>{
 
@@ -60,19 +72,16 @@ export const DragAndDrop:ComponentStory<typeof DNDZone> = (args)=>{
   });
   const [dropText, setDropText] = useState("Drop Here!")
   function onDragEnter(dragItem:HTMLElement, dropItem:HTMLElement){
-    console.log("entered")
     setDropBoxStyle((prev)=>{
       return {...prev, boxShadow:"0px 0px 8px black"}
     })
   }
   function onDragLeave(dragItem:HTMLElement, dropItem:HTMLElement){
-    console.log("leave")
     setDropBoxStyle((prev)=>{
       return {...prev,  boxShadow:""}
     })
   }
   function onDrop(dragItem:HTMLElement, dropItem:HTMLElement){
-    console.log("drop")
     setDropBoxStyle((prev)=>{
       return {...prev, boxShadow:"", background:"yellow", color:"black"}
     });
@@ -92,6 +101,7 @@ DragAndDrop.args = {
   dropClass:"drop",
   revert:true
 }
+DragAndDrop.parameters = paraArgs;
 
 let dropCusStyle = {width:"150px", height:"150px", background:"gray", display:'flex', alignItems:'center', justifyContent:'center', color:"#ffffff", padding:"4px", textAlign:"center" as const}
 
@@ -113,7 +123,7 @@ export const MultipleDragAndDrop:ComponentStory<typeof DNDZone> = (args)=>{
     dropItem.style.boxShadow = "";
     dropItem.style.background = colorArray[colorNum];
     dropItem.style.color = "black";
-    dropItem.innerHTML = `${dragText} is droped over ${dropText}`;
+    dropItem.innerHTML = `${dragText} is dropped over ${dropText}`;
   }
   return(
     <DNDZone {...args} onDragEnter={onDragEnter} onDragLeave={onDragLeave} onDrop={onDrop}>
@@ -137,6 +147,5 @@ MultipleDragAndDrop.args = {
   dropClass:"drop",
   revert:true
 }
-// MultipleDragAndDrop.parameters = {
-//   controls:{ include: ['dropClass', 'revert'] } 
-// }
+MultipleDragAndDrop.parameters = paraArgs;
+

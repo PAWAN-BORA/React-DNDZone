@@ -7,11 +7,29 @@ interface Props {
    * className of elements that need to be dragged!
    */
 	dragClass:string,
+   /**
+   * className of elements on which the drag element is dropped!
+   */
 	dropClass:string
+   /**
+   * If this value is set to false, the drag item will not revert to its initial position upon being dropped. 
+   */
 	revert?:boolean,
+  /**
+   * This function will execute when the drag item is dropped onto the drop item. 
+   */
   onDrop?:((dragItem:HTMLElement, drapItem:HTMLElement)=>void)|null,
+  /**
+   * This function will execute when the drag item enters over the drop item. 
+   */
   onDragEnter?:((dragItem:HTMLElement, drapItem:HTMLElement)=>void)|null,
+  /**
+   * This function will execute when the drag item is no longer over the drop item. 
+   */
   onDragLeave?:((dragItem:HTMLElement, drapItem:HTMLElement)=>void)|null,
+   /**
+   * This specifies the initial z-index value of the drag item when it is being dragged
+   */
   dragZIndex:number
 }
 interface dragItem {
