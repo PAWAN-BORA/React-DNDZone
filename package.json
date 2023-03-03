@@ -1,6 +1,6 @@
 {
   "name": "react-dndzone",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Simple Drag and Drop for react.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

@@ -26,19 +26,19 @@ function App(){
   }
 
   return(
-    <DNDZone onDragEnter={onDragEnter} onDragLeave={onDragLeave} onDrop={onDrop}>
-        <div style={{display:'grid', gridTemplateColumns:"1fr 1fr 1fr 1fr", columnGap:'4px'}}>
-        <div className="drag">Drag 1!</div>
-        <div className="drag">Drag 2!</div>
-        <div className="drag">Drag 3!</div>
-        <div className="drag">Drag 4!</div>
-        </div>
-        <div style={{marginTop:"24px", display:'grid', gridTemplateColumns:"1fr 1fr 1fr 1fr", columnGap:'4px'}}>
-        <div className="drop">drop 1!</div>
-        <div className="drop">drop 2!</div>
-        <div className="drop">drop 3!</div>
-        <div className="drop">drop 4!</div>
-        </div>
+    <DNDZone  dragClass="drag" dropClass="drop" onDragEnter={onDragEnter} onDragLeave={onDragLeave} onDrop={onDrop}>
+      <div style={{display:'grid', gridTemplateColumns:"1fr 1fr 1fr 1fr", columnGap:'4px'}}>
+        <div style={{width:"100px", height:"100px", background:"gray"}} className="drag">Drag 1!</div>
+        <div style={{width:"100px", height:"100px", background:"gray"}} className="drag">Drag 2!</div>
+        <div style={{width:"100px", height:"100px", background:"gray"}} className="drag">Drag 3!</div>
+        <div style={{width:"100px", height:"100px", background:"gray"}} className="drag">Drag 4!</div>
+      </div>
+      <div style={{marginTop:"24px", display:'grid', gridTemplateColumns:"1fr 1fr 1fr 1fr", columnGap:'4px'}}>
+        <div style={{width:"100px", height:"100px", background:"blue"}} className="drop">drop 1!</div>
+        <div style={{width:"100px", height:"100px", background:"blue"}} className="drop">drop 2!</div>
+        <div style={{width:"100px", height:"100px", background:"blue"}} className="drop">drop 3!</div>
+        <div style={{width:"100px", height:"100px", background:"blue"}} className="drop">drop 4!</div>
+      </div>
     </DNDZone>
 
   )
